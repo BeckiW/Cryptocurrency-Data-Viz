@@ -1,6 +1,7 @@
 import React from "react"
 import openGdaxWebsocket from "../gdax-websocket"
-import { LineChart, Line, Label, Legend, Tooltip, YAxis, XAxis } from 'recharts'
+import { LineChart, Line, Label, ResponsiveContainer, Legend, Tooltip, YAxis, XAxis } from 'recharts'
+import "./style.css"
 
 class App extends React.Component {
 
@@ -37,6 +38,12 @@ class App extends React.Component {
         }
       }
 
+
+    if (this.state.tickerMessages.length > 9) {
+      previousState.tickerMessages.shift()
+      previousState.dataArray.shift()
+    }
+
       return {
 
         tickerMessages: previousState.tickerMessages.concat([newTickerMessage]),
@@ -50,7 +57,10 @@ class App extends React.Component {
 
 
     return (
-      <div>
+      <div className="container">
+
+       <ResponsiveContainer width="90%" height="90%">
+
         <LineChart width={400} height={400} data={this.state.dataArray}>
         <Tooltip />
           <Line type="monotone" dataKey="BTC-EUR" stroke="#8884d8" />
@@ -58,11 +68,17 @@ class App extends React.Component {
 
           <Legend verticalAlign="top" height={36}/>
 
-          <XAxis dataKey="timestamp"  />
-           <Label value="Date" offset={0} position="insideBottom" />
+          <XAxis dataKey="timestamp">
+            <Label value="Time" offset={0} position="insideBottom" />
+             </XAxis>
           <YAxis type="number" domain={["dataMin - 100", "dataMax + 100"]} />
+            <Label value="Date" offset={0} position="insideBottom" />
+
 
         </LineChart>
+
+       </ResponsiveContainer>
+
       </div>
     )
   }
