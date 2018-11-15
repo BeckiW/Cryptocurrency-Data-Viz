@@ -3,6 +3,8 @@
   "version": "1.2.2",
   "private": true,
   "dependencies": {
+    "@nivo/circle-packing": "^0.50.0",
+    "@nivo/generators": "^0.50.0",
     "eslint-config-technigo": "^1.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

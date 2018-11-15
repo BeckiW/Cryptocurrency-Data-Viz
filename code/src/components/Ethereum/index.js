@@ -1,6 +1,12 @@
 import React from "react"
 import openGdaxWebsocket from "../../gdax-websocket"
-import { LineChart, Line, Scatter, ScatterChart, CartesianGrid, RadialBarChart, RadialBar, Label, ResponsiveContainer, Legend, Tooltip, YAxis, XAxis } from 'recharts'
+import { LineChart, BarChart, Bar, Line, Scatter, ScatterChart, CartesianGrid, RadialBarChart, RadialBar, Label, ResponsiveContainer, Legend, Tooltip, YAxis, XAxis } from 'recharts'
+import { ResponsiveBubble } from '@nivo/circle-packing'
+import { generateCountriesData } from '@nivo/generators'
+
+
+
+
 
 class Ethereum extends React.Component {
 
@@ -31,16 +37,29 @@ class Ethereum extends React.Component {
         if (previousEntry) {
           entryLog["ETH-EUR"] = previousEntry["ETH-EUR"]
           entryLog["LTC-EUR"] = previousEntry["LTC-EUR"]
+          entryLog["BCH-EUR"] = previousEntry["BCH-EUR"]
+
         }} else if (newTickerMessage.product_id === "ETH-EUR") {
         entryLog["ETH-EUR"] = newTickerMessage.price
         if (previousEntry) {
           entryLog["BTC-EUR"] = previousEntry["BTC-EUR"]
           entryLog["LTC-EUR"] = previousEntry["LTC-EUR"]
+          entryLog["BCH-EUR"] = previousEntry["BCH-EUR"]
         }}
+
+        else if (newTickerMessage.product_id === "LTC-EUR") {
+        entryLog["LTC-EUR"] = newTickerMessage.price
+        if (previousEntry) {
+          entryLog["BTC-EUR"] = previousEntry["BTC-EUR"]
+          entryLog["ETH-EUR"] = previousEntry["ETH-EUR"]
+          entryLog["BCH-EUR"] = previousEntry["BCH-EUR"]
+        }}
+
         else {
         if (previousEntry) {
           entryLog["BTC-EUR"] = previousEntry["BTC-EUR"]
           entryLog["ETH-EUR"] = previousEntry["ETH-EUR"]
+          entryLog["LTC-EUR"] = previousEntry["LTC-EUR"]
         }
       }
 
@@ -67,14 +86,16 @@ class Ethereum extends React.Component {
 
 <ResponsiveContainer width="90%" height="90%">
 <RadialBarChart width={730} height={250} innerRadius="10%" outerRadius="80%" data={this.state.dataArray} startAngle={180} endAngle={0}>
-  <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='BTC-EUR' />
-    <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='ETH-EUR' />
-    <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='LTC-EUR' />
+  <RadialBar minAngle={15} label={{ fill: '#990066', position: 'insideStart' }} background clockWise={true} dataKey='BTC-EUR' />
+    <RadialBar minAngle={15} label={{ fill: '#cc6633', position: 'insideStart' }} background clockWise={true} dataKey='ETH-EUR' />
+    <RadialBar minAngle={15} label={{ fill: '#9900ff', position: 'insideStart' }} background clockWise={true} dataKey='LTC-EUR' />
+    <RadialBar minAngle={15} label={{ fill: '#0000cc', position: 'insideStart' }} background clockWise={true} dataKey='BCH-EUR' />
   <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
   <Tooltip />
 </RadialBarChart>
 
 </ResponsiveContainer>
+
 
 
       </div>

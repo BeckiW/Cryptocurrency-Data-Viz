@@ -21,6 +21,7 @@ class App extends React.Component {
 
       <h2> Comparisons of closing values using historical data </h2>
 
+      <img src="/graph1.png" alt="Graph"/>
 
 
 
