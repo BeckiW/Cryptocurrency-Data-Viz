@@ -1,0 +1,14 @@
+.section hr {
+  width: 100%;
+  color: #ffb800;
+  background-color: purple;
+  height: 2px;
+  border: 0px;
+  margin-bottom: 20px;
+}
+
+.vertical hr {
+  transform: rotate(90deg);
+  width: 30px;
+  colour: yellow;
+}
