@@ -7,8 +7,51 @@
   margin-bottom: 20px;
 }
 
-.vertical hr {
-  transform: rotate(90deg);
-  width: 30px;
-  colour: yellow;
+.vertical {
+     transform: rotate(90deg);
+     width: 100%;
+     padding-left: 100px;
+     border: 1px solid purple;
+     margin: 0 auto;
+
+}
+
+.vertical, .vertical ul, .vertical li {
+     position: relative;
+     width: 500px;
+}
+
+.vertical ul {
+    list-style: none;
+    padding-left: 32px;
+}
+
+.container {
+  margin: 0 auto;
+
+}
+
+.vertical li::before, .vertical li::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+}
+
+.vertical li::before {
+    border-top: 1px dashed pink;
+    top: 9px;
+    width: 8px;
+    height: 0;
+    padding: 20px;
+}
+
+.vertical li::after {
+    border-left: 1px dashed pink;
+    height: 100%;
+    width: 0px;
+    top: 2px;
+}
+
+.vertical ul > li:last-child::after {
+    height: 8px;
 }

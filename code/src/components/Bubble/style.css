@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.containerBubble {
+  height: 400px;
+  width: 100%;
+}
+
+h2 {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+}

@@ -6,8 +6,6 @@ import { generateCountriesData } from '@nivo/generators'
 
 
 
-
-
 class Ethereum extends React.Component {
 
   state = {

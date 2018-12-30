@@ -1,21 +1,24 @@
 import React from 'react'
 import { ResponsiveBubble } from '@nivo/circle-packing'
-import Stats from '../stats'
 import { generateCountriesData } from '@nivo/generators'
-import './style.css'
+import "./style.css"
+
 
 const colors = ['#fae04d', '#ff744c', '#789792', '#b1646a', '#efa9a1', '#8470c7', '#97a66f']
 
   const Bubble = (props) => (
       <div className = "containerBubble">
+      <h2>Cryptocurrentcy caps</h2>
           <ResponsiveBubble
               root={{
                   data: 'root',
-                  children: [{"name": "",
-                              "value": props.swimTime},
-                              {"name": "hike",
-                              "value": props.hikeTime}, {"name": "gym",
-                                                        "value": props.gymTime}]
+                  children: [{"name": "Bitcoin",
+                              "value": 100},
+                              {"name": "Litecoin",
+                              "value": 50},
+                              {"name": "",
+                              "value": 30 }]
+
               }}
               identity="name"
               value="value"
