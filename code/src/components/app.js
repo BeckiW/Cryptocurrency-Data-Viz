@@ -14,23 +14,22 @@ class App extends React.Component {
     return (
 
       <div class='sky'>
-        <div class='stars'></div>
+        <div class='stars'>
 
         <div className="container">
 
         <h1>Crytocurrency Comparisons</h1>
 
-        <div className="component-section">
 
           <BitcoinPage/>
           <Bubble />
           <Ethereum />
           <History />
 
-          </div>
 
-      </div>
         </div>
+      </div>
+    </div>
     )
   }
 

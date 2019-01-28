@@ -16,8 +16,10 @@ const colors = ['#fae04d', '#ff744c', '#789792', '#b1646a', '#efa9a1', '#8470c7'
                               "value": 100},
                               {"name": "Litecoin",
                               "value": 50},
-                              {"name": "",
-                              "value": 30 }]
+                              {"name": "Ripple",
+                              "value": 30 },
+                              {"name": "Dash",
+                              "value": 20 }]
 
               }}
               identity="name"
